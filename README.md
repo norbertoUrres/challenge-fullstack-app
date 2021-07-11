@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+**## Available Scripts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En el root del proyecto se puede ejecutar:
 
-## Available Scripts
+### `npm run start`
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para ejecutar la app en entorno de desarrollo.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la app para el entorno de producción, generando la carpeta `build`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Descripción e instrucciones de uso
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La aplicación "Covid Checks" fue creada para registrar los test de COVID-19 efectuados a personas para verificar si fueron infectados. La aplicación consta de tres pantallas.
 
-### `npm run eject`
+Principal (inicio):
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**## Available Scripts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+En el root del proyecto se puede ejecutar:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run start`
 
-## Learn More
+Para ejecutar la app en entorno de desarrollo.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm run build`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Construye la app para el entorno de producción, generando la carpeta `build`.
+
+------------
+
+
+### Descripción e instrucciones de uso
+
+La aplicación "Covid Checks" fue creada para registrar los test de COVID-19 efectuados a personas para verificar si fueron infectados. La aplicación consta de tres pantallas.
+
+#### Principal (inicio)
+
+- Estadísticas.
+- Botón para cargar un nuevo chequeo.
+- Filtro/búsqueda de chequeos: se puede filtrar por país o resultado.
+- Tabla de chequeos: nombre, país y resultado.
+- Visualización de detalle por chequeo.
+
+#### Formulario para crear un nuevo chequeo
+
+Para cargar un nuevo chequeo se deberá informar el nombre, país y DNA de la persona. Los tres datos son obligatorios y no se permitirá cargar el registro sin estar completos. Para cargar la secuencia de DNA se deben tener las siguiente consideraciones:
+
+- El string no podrá ser menor a 16 caracteres.
+- Solo se permiten caracteres A, T, C y G (pueden ser minúsculas o mayúsculas).
+- En el caso de ingresar un string con el cual no se pueda generar una tabla de NxN se visualizará en pantalla el siguiente mensaje: *"El DNA está incompleto."*
+
+**Ejemplos de DNA válidos:**
+
+ATCG ATCG ATCG ATCG -> 16 caracteres => tabla 4x4
+ATCGA TCGAT CGATC GATCG TTTTT -> 25 caracteres => tabla 5x5
+
+#### Detalle de chequeo
+
+Visualización de detalle de los chequeos registrados.
