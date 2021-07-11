@@ -1,4 +1,4 @@
-**## Available Scripts
+## Available Scripts
 
 En el root del proyecto se puede ejecutar:
 
