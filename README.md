@@ -17,7 +17,7 @@ La aplicación "Covid Checks" fue creada para registrar los test de COVID-19 efe
 Principal (inicio):
 
 
-**## Available Scripts
+## Available Scripts
 
 En el root del proyecto se puede ejecutar:
 
@@ -55,6 +55,7 @@ Para cargar un nuevo chequeo se deberá informar el nombre, país y DNA de la pe
 **Ejemplos de DNA válidos:**
 
 ATCG ATCG ATCG ATCG -> 16 caracteres => tabla 4x4
+
 ATCGA TCGAT CGATC GATCG TTTTT -> 25 caracteres => tabla 5x5
 
 #### Detalle de chequeo
