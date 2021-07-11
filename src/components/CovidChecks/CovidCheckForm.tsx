@@ -23,7 +23,8 @@ const CovidChecksForm = () => {
 
   const onSubmit: SubmitHandler<CovidCheck> = async (oCovidCheck) => {
     // Convert DNA to Array of String
-    let sDna = oCovidCheck.dna, aAuxArr = [];
+    let sDna = oCovidCheck.dna,
+      aAuxArr = [];
     let iDnaLength = sDna.length;
     let iRowLength = Math.floor(Math.sqrt(iDnaLength));
     let iCount = 0;
@@ -32,7 +33,7 @@ const CovidChecksForm = () => {
       iCount += iRowLength;
     }
     oCovidCheck.dna = aAuxArr;
-    
+
     await CovidCheckService.createCovidChecks(oCovidCheck);
     toast.success("¡Análisis cargado con éxito!");
     oHistory.push("/");
@@ -60,7 +61,11 @@ const CovidChecksForm = () => {
                   className="form-control"
                   {...register("name", { required: true })}
                 />
-                {errors.name && <div className="invalid-feedback d-block">Este campo es requerido.</div>}
+                {errors.name && (
+                  <div className="invalid-feedback d-block">
+                    Este campo es requerido.
+                  </div>
+                )}
               </div>
 
               <div className="mb-3">
@@ -70,11 +75,16 @@ const CovidChecksForm = () => {
                   className="form-control"
                   {...register("country", { required: true })}
                 />
-                {errors.country && <div className="invalid-feedback d-block">Este campo es requerido.</div>}
+                {errors.country && (
+                  <div className="invalid-feedback d-block">
+                    Este campo es requerido.
+                  </div>
+                )}
               </div>
 
               <div className="mb-3">
                 <textarea
+                  placeholder="DNA"
                   rows={3}
                   className="form-control"
                   {...register("dna", {
@@ -95,9 +105,25 @@ const CovidChecksForm = () => {
                   errors={errors}
                   name="dna"
                   render={({ messages }) => {
-                    return messages ? _.entries(messages).map(([type, message]) => (
-                      (type === "validate") ? <div className="invalid-feedback d-block" key={type}>El DNA está incompleto.</div> : <div className="invalid-feedback d-block" key={type}>{message}</div>
-                    )) : null;
+                    return messages
+                      ? _.entries(messages).map(([type, message]) =>
+                          type === "validate" ? (
+                            <div
+                              className="invalid-feedback d-block"
+                              key={type}
+                            >
+                              El DNA está incompleto.
+                            </div>
+                          ) : (
+                            <div
+                              className="invalid-feedback d-block"
+                              key={type}
+                            >
+                              {message}
+                            </div>
+                          )
+                        )
+                      : null;
                   }}
                 />
               </div>
